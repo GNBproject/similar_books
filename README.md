@@ -1,7 +1,7 @@
 # similar_books
 recommend 10 similar_books isbn
 
-ex) %python 유사도서.py embedding.csv similar_books.csv
+ex) %python 유사도서.py embedding.csv similar_books.csv /n
 embedding.csv must contain ['isbn','embedding'] columns
 
 Macbook Pro M1 chip:
