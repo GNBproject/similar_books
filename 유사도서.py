@@ -25,7 +25,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 try:
-    df = pd.read_csv(argv[1],index_col=None,converters = {"embedding":literal_eval})
+    df = pd.read_csv(sys.argv[1],index_col=None,converters = {"embedding":literal_eval})
 except:
     printf("read_csv failed. check file name and format")
 
@@ -83,7 +83,7 @@ for cut in range(int((embeddings.index.stop)/10)): # macbook pro 기준 100개 2
 
 
 try:
-    similar_df.to_csv(argv[2],index=False)
+    similar_df.to_csv(sys.argv[2],index=False)
 except:
     print("pd.to_csv failed. check file name")
 
