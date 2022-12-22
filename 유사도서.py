@@ -12,20 +12,20 @@ import sys
 # In[2]:
 
 
-from ast import literal_eval
+from ast import literal_eval #str 으로  저장되어있는 embedding column 을 list 로 바꾸기 위한 라이브러리
 
 
 # In[3]:
 
 
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import cosine_similarity # cosine 유사도
 
 
 # In[33]:
 
 
 try:
-    df = pd.read_csv(sys.argv[1],index_col=None,converters = {"embedding":literal_eval})
+    df = pd.read_csv(sys.argv[1],index_col=None,converters = {"embedding":literal_eval}) # string -> list
 except:
     printf("read_csv failed. check file name and format")
 
@@ -34,7 +34,7 @@ except:
 
 
 try:
-    embeddings = df['embedding'].values.tolist()
+    embeddings = df['embedding'].values.tolist() #embedding 값 가져오기
 except:
     printf("embedding column does not exist")
 
@@ -42,7 +42,7 @@ except:
 # In[36]:
 
 
-embeddings = pd.DataFrame(embeddings)
+embeddings = pd.DataFrame(embeddings) 
 
 
 # In[38]:
@@ -77,7 +77,7 @@ for cut in range(int((embeddings.index.stop)/10)): # macbook pro 기준 100개 2
         similar_isbn = df['isbn'][sim_list].values.tolist()
         similar_books = ' '.join(map(str,similar_isbn))
         similar_df.loc[index] = [df['isbn'][index],similar_books]
-
+## speed and memory trade off 메모리 오류나면 RAM 부족 -> 10을 모두 5로 바꾼다.
 
 # In[ ]:
 
