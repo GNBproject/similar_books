@@ -1,7 +1,7 @@
 # similar_books
 recommend 10 similar_books isbn
 
-ex) %python 유사도서.py embedding.csv similar_books.csv 
+ex) %python3 src/similar.py data/embedding_books_1.csv data/similar_1_test.csv 
 
 embedding.csv must contain ['isbn','embedding'] columns
 
